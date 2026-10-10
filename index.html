@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhipsha | Personal Portfolio</title>
+  <meta name="description" content="Welcome to Abhipsha's personal portfolio website.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #0b0b12;
+      --card: #151521;
+      --text: #f7f5ff;
+      --muted: #aaa7bd;
+      --accent: #bd9cff;
+      --pink: #ff9fcb;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      position: sticky;
+      top: 0;
+      background: rgba(11, 11, 18, .94);
+      backdrop-filter: blur(12px);
+      z-index: 10;
+      border-bottom: 1px solid #ffffff12;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+    }
+
+    nav a {
+      color: var(--muted);
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--pink);
+    }
+
+    section {
+      padding: 90px 8%;
+      scroll-margin-top: 75px;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(ellipse at 80% 35%, #7446a733, transparent 45%);
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 15px;
+      border: 1px solid #bd9cff55;
+      color: var(--accent);
+      border-radius: 30px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(46px, 8vw, 82px);
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--accent), var(--pink));
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero p, .about-text {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 620px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 9px;
+      background: linear-gradient(100deg, #bd9cff, #ff9fcb);
+      color: #171020;
+      font-weight: bold;
+      transition: transform .3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #ffffff40;
+    }
+
+    .section-title {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 35px;
+    }
+
+    .about-grid, .skills-grid, .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #ffffff12;
+      padding: 28px;
+      border-radius: 18px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #bd9cff77;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skill {
+      text-align: center;
+      padding: 22px 10px;
+    }
+
+    .skill span {
+      font-size: 30px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .project-icon {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--pink);
+    }
+
+    .contact {
+      text-align: center;
+      background: radial-gradient(ellipse at center, #7446a722, transparent 65%);
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin: 15px auto 25px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #ffffff12;
+      color: var(--muted);
+    }
+
+    @media (max-width: 760px) {
+      header {
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      nav {
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 13px;
+      }
+
+      section {
+        padding: 65px 6%;
+      }
+
+      .about-grid, .skills-grid, .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 75vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="#home">Abhipsha.</a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="tag">✨ Welcome to my portfolio</span>
+        <h1>Hi, I'm <span class="gradient">Abhipsha</span></h1>
+        <h2>Creative Mind. Curious Soul. Future Professional.</h2>
+        <p>
+          I love learning new things, exploring creative ideas,
+          and turning inspiration into meaningful work.
+          Welcome to my little corner of the internet!
+        </p>
+        <div class="buttons">
+          <a href="#projects" class="btn">Explore My Work ↗</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About <span class="gradient">Me</span></h2>
+      <p class="section-subtitle">A little introduction to who I am.</p>
+      <div class="about-grid">
+        <div class="card">
+          <h3>👋 Who I Am</h3>
+          <p>
+            Hello! I'm Abhipsha. I'm passionate about discovering
+            new opportunities, developing my skills, and expressing
+            my ideas through creative projects.
+          </p>
+        </div>
+        <div class="card">
+          <h3>🎯 My Goals</h3>
+          <p>
+            My goal is to keep growing, learn from every experience,
+            and build projects that reflect my personality,
+            creativity, and dedication.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">My <span class="gradient">Skills</span></h2>
+      <p class="section-subtitle">Things I enjoy learning and improving.</p>
+      <div class="skills-grid">
+        <div class="card skill">
+          <span>💻</span>
+          <h3>HTML & CSS</h3>
+          <p>Building web pages</p>
+        </div>
+        <div class="card skill">
+          <span>🎨</span>
+          <h3>Creativity</h3>
+          <p>Design and new ideas</p>
+        </div>
+        <div class="card skill">
+          <span>🤝</span>
+          <h3>Communication</h3>
+          <p>Sharing ideas and collaborating</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">My <span class="gradient">Projects</span></h2>
+      <p class="section-subtitle">A collection of work and future ideas.</p>
+      <div class="project-grid">
+        <div class="card">
+          <div class="project-icon">🌐</div>
+          <h3>Personal Portfolio</h3>
+          <p>A personal website to introduce myself and showcase my skills.</p>
+          <a class="project-link" href="#home">View Portfolio ↗</a>
+        </div>
+        <div class="card">
+          <div class="project-icon">🎨</div>
+          <h3>Creative Designs</h3>
+          <p>A space for visual experiments, design concepts, and inspiration.</p>
+          <a class="project-link" href="#contact">Ask Me About It ↗</a>
+        </div>
+        <div class="card">
+          <div class="project-icon">💡</div>
+          <h3>Future Projects</h3>
+          <p>New ideas, exciting challenges, and things I'm looking forward to building.</p>
+          <a class="project-link" href="#contact">Stay Connected ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="section-title">Let's <span class="gradient">Connect!</span></h2>
+      <p>
+        Have an idea, an opportunity, or just want to say hello?
+        I'd love to hear from you.
+      </p>
+      <!-- Replace with your actual email address -->
+      <a class="btn" href="mailto:your-email@example.com">Send Me an Email ✉</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Abhipsha. Made with 💜</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
